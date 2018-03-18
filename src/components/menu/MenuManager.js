@@ -8,8 +8,10 @@ import {
     Text,
     View,
     Button,
+    Image
 } from 'react-native';
 import GameManager              from "../game/GameManager";
+import Sizes                    from "../../theme/sizes";
 
 export default class MenuManager extends Component{
 
@@ -33,10 +35,17 @@ export default class MenuManager extends Component{
                 <GameManager/>
             )
         }else{
-            return(<Button
-                title={"Game test"}
-                onPress={()=>{this.setState({game:true})}}
-                color={"#00BFA5"}/>)
+            return(
+                <View>
+                    <Image source={require('../../images/banner.jpg')} style={{height:Sizes.screen.height / 1.5,width:Sizes.screen.width}}/>
+                    <View style={{margin:20}}>
+                        <Button
+                            title={"Game test"}
+                            onPress={()=>{this.setState({game:true})}}
+                            color={"#00BFA5"}/>
+                    </View>
+                </View>
+            )
         }
     }
 

@@ -4,12 +4,14 @@ import {
     StyleSheet,
     Text,
     View,
+    Image
 } from 'react-native';
 import HeaderManager      from "./components/header/HeaderManager";
 import StatusBar          from "./components/header/StatusBarManager";
 import About              from "./components/about/About";
 import Rules              from "./components/rules/Rules";
 import MenuManager        from "./components/menu/MenuManager";
+import Sizes              from "./theme/sizes";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
