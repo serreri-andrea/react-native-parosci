@@ -72,17 +72,16 @@ export default class GameManager extends Component{
             let random = array[Math.floor(Math.random()*array.length)];
             this.setState({IACard: random});
             //return(random)
-        }/*else if (this.props.difficulty === "impossible"){
-            console.warn("je suis bien ici")
+        }else if (this.props.difficulty === "impossible"){
             let rules = this.getRules();
             for(let i = 0; i < rules.length; i++){
-                if (rules[i].reference === this.state.yourCard){
-                    console.warn("je vais la: ", rules[i])
-                    this.setState({IACard:rules[i].loose});
-                    console.warn("IA play : ", rules[i].loose)
+                if (rules[i].reference === card){
+                    let array = rules[i].loose;
+                    let random = array[Math.floor(Math.random()*array.length)];
+                    this.setState({IACard:random});
                 }
             }
-        }*/
+        }
     }
 
     getVictory(){
@@ -115,7 +114,6 @@ export default class GameManager extends Component{
     }
 
     render(){
-        console.warn("props here: ", this.props)
         return(
             <View style={styles.container}>
                 <ScoreBoard/>
