@@ -37,7 +37,7 @@ export default class MenuManager extends Component{
         }else{
             return(
                 <View>
-                    <Image source={require('../../images/banner.jpg')} style={{height:Sizes.screen.height / 1.5,width:Sizes.screen.width}}/>
+                    <Image source={require('../../images/banner.png')} style={{height:Sizes.screen.height / 1.5,width:Sizes.screen.width}}/>
                     <View style={{margin:20}}>
                         <Button
                             title={"Game test"}

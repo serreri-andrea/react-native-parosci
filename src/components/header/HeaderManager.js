@@ -11,6 +11,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import Sizes                from "../../theme/sizes";
+import Colors               from "../../theme/colors";
 
 export default class HeaderManager  extends Component{
 

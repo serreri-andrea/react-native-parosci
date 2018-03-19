@@ -11,4 +11,8 @@ export default {
         textPrimary:"#222222",
         textSecondary:"#9a9a9a",
     },
+    header: {
+        darkBackground:"black",
+        lightBackground: "white",
+    }
 };
