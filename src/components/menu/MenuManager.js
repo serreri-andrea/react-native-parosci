@@ -17,15 +17,14 @@ export default class MenuManager extends Component{
 
     constructor(props) {
         super(props);
-        this.state = props;
+        this.props = props;
+        this.state = {};
     }
 
     componentWillReceiveProps(props){
-        console.warn("props: ", JSON.stringify(this.state))
     }
 
     componentDidMount()  {
-        console.warn("mount: ", JSON.stringify(this.state))
     }
 
     renderGame(){

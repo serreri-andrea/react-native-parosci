@@ -13,7 +13,6 @@ export default class GameManager extends Component{
 
     constructor(props) {
         super(props);
-        this.state = props;
     }
 
     componentDidMount()  {

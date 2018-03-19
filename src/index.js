@@ -20,15 +20,14 @@ export default class App extends Component<Props> {
 
     constructor(props) {
         super(props);
-        this.state = props;
+        this.props = props;
+        this.state = {};
     }
 
     componentWillReceiveProps(props){
-        console.warn("PROPS: ", JSON.stringify(this.state))
     }
 
     componentDidMount()  {
-        console.warn("index: ", JSON.stringify(this.state))
     }
 
     getNavigation(state){
@@ -50,7 +49,7 @@ export default class App extends Component<Props> {
             )
         }else{
             return(
-                <MenuManager game={this.state.game}/>
+                <MenuManager/>
             )
         }
     }
@@ -60,7 +59,7 @@ export default class App extends Component<Props> {
             return (
                 <View style={{flex: 1}}>
                     <StatusBar/>
-                    <HeaderManager callback={this.getNavigation.bind(this)}/>
+                    <HeaderManager callback={this.getNavigation.bind(this)} display={true}/>
                     {this.renderContent()}
                 </View>
             );

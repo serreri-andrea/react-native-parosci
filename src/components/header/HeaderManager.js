@@ -32,16 +32,20 @@ export default class HeaderManager  extends Component{
     }
 
     render(){
-        return(
-            <View style={styles.container}>
-                <Text style={[styles.title, {color:this.state.status === "home" ? "#00BFA5" : "white"}]}
-                      onPress={this.callback.bind(this, "home")}>Home</Text>
-                <Text style={[styles.items, {color:this.state.status === "rules" ? "#00BFA5": "white"}]}
-                      onPress={this.callback.bind(this, "rules")}>Rules</Text>
-                <Text style={[styles.items, {color:this.state.status === "about" ? "#00BFA5" : "white"}]}
-                      onPress={this.callback.bind(this, "about")}>About</Text>
-            </View>
-        )
+        if (this.props.display) {
+            return (
+                <View style={styles.container}>
+                    <Text style={[styles.title, {color: this.state.status === "home" ? "#00BFA5" : "white"}]}
+                          onPress={this.callback.bind(this, "home")}>Home</Text>
+                    <Text style={[styles.items, {color: this.state.status === "rules" ? "#00BFA5" : "white"}]}
+                          onPress={this.callback.bind(this, "rules")}>Rules</Text>
+                    <Text style={[styles.items, {color: this.state.status === "about" ? "#00BFA5" : "white"}]}
+                          onPress={this.callback.bind(this, "about")}>About</Text>
+                </View>
+            )
+        }else{
+            return(<View/>)
+        }
     }
 }
 
