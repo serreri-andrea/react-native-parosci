@@ -86,7 +86,7 @@ export default class GameManager extends Component{
 
     getVictory(){
         if (this.state.yourCard && this.state.IACard){
-            let rules = this.getRules()
+            let rules = this.getRules();
             let winner = "";
             for(let i = 0; i < rules.length; i++){
                 if (rules[i].reference === this.state.yourCard){
@@ -104,13 +104,15 @@ export default class GameManager extends Component{
     }
 
     renderMatchInfo(){
-        return(
-            <View>
-                <Text> You played: {this.state.yourCard || ""}</Text>
-                <Text> IA plays: {this.state.IACard || ""}</Text>
-                <Text> Winner: {this.getVictory()}</Text>
-            </View>
-        )
+        if (this.state.yourCard && this.state.IACard) {
+            return (
+                <View>
+                    <Text> You played: {this.state.yourCard || ""}</Text>
+                    <Text> IA plays: {this.state.IACard || ""}</Text>
+                    <Text> Winner: {this.getVictory()}</Text>
+                </View>
+            )
+        }
     }
 
     render(){
