@@ -2,26 +2,131 @@
  * Created by Andrea on 18/03/2018.
  */
 
-import React, { Component } from 'react';
+import React, { Component }     from 'react';
 import {
     StyleSheet,
     Text,
     View,
+    Button,
+    BackHandler,
+    Alert,
 } from 'react-native';
+import ScoreBoard               from "./ScoreBoard";
+import CardBoard                from "./CardBoard";
+import GameRuler                from "../../config/game";
 
 export default class GameManager extends Component{
 
     constructor(props) {
         super(props);
+        this.props = props;
+        this.state = {};
     }
 
     componentDidMount()  {
+        /* BackHandler.addEventListener('hardwareBackPress', function() {
+             this.props.callback(false)
+             return true;
+         });*/
+    }
+
+    componentWillUnmount(){
+    }
+
+    handleBack(){
+        Alert.alert(
+            "Warning",
+            "Do you want to exit the game ?",
+            [
+                {text: "yes", onPress: () => this.props.callback()},
+                {text: "no", onPress:null}
+            ],
+            {cancelable: false}
+        )
+    }
+
+    getCardFromRule(){
+        let cards = {};
+        for (let i = 0; i < GameRuler.game.length; i++){
+            if (GameRuler.game[i].reference === this.props.mode){
+                cards = GameRuler.game[i].cards
+            }
+        }
+        return(cards)
+    }
+
+    getRules(){
+        let rules = {};
+        for (let i = 0; i < GameRuler.game.length; i++){
+            if (GameRuler.game[i].reference === this.props.mode){
+                rules = GameRuler.game[i].rules
+            }
+        }
+        return(rules)
+    }
+
+    getCardPlayed(card){
+        this.setState({yourCard:card});
+        if (this.props.difficulty === "easy"){
+            let array = this.getCardFromRule();
+            let random = array[Math.floor(Math.random()*array.length)];
+            this.setState({IACard: random});
+            //return(random)
+        }/*else if (this.props.difficulty === "impossible"){
+            console.warn("je suis bien ici")
+            let rules = this.getRules();
+            for(let i = 0; i < rules.length; i++){
+                if (rules[i].reference === this.state.yourCard){
+                    console.warn("je vais la: ", rules[i])
+                    this.setState({IACard:rules[i].loose});
+                    console.warn("IA play : ", rules[i].loose)
+                }
+            }
+        }*/
+    }
+
+    getVictory(){
+        if (this.state.yourCard && this.state.IACard){
+            let rules = this.getRules()
+            let winner = "";
+            for(let i = 0; i < rules.length; i++){
+                if (rules[i].reference === this.state.yourCard){
+                    if (rules[i].wins.includes(this.state.IACard)){
+                        return (winner = "YOU")
+                    }else if (rules[i].loose.includes(this.state.IACard)){
+                        return (winner = "IA")
+                    }else{
+                        return (winner = "draw")
+                    }
+                }
+            }
+            return(winner)
+        }else{}
+    }
+
+    renderMatchInfo(){
+        return(
+            <View>
+                <Text> You played: {this.state.yourCard || ""}</Text>
+                <Text> IA plays: {this.state.IACard || ""}</Text>
+                <Text> Winner: {this.getVictory()}</Text>
+            </View>
+        )
     }
 
     render(){
+        console.warn("props here: ", this.props)
         return(
             <View style={styles.container}>
-                <Text> GAME </Text>
+                <ScoreBoard/>
+                <View style={{flex:1}}>
+                    {this.renderMatchInfo()}
+                </View>
+                <CardBoard cards={this.getCardFromRule()} callback={this.getCardPlayed.bind(this)}/>
+                <Button
+                title="back"
+                color="pink"
+                onPress={this.handleBack.bind(this)}/>
             </View>
         )
     }
@@ -29,6 +134,7 @@ export default class GameManager extends Component{
 
 const styles = StyleSheet.create({
     container:{
-        ...StyleSheet.absoluteFillObject,
+        flex:1,
+        backgroundColor:"white"
     },
 });

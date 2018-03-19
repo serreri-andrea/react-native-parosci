@@ -4,7 +4,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
 } from 'react-native';
 import HeaderManager        from "./components/header/HeaderManager";
 import StatusBar            from "./components/header/StatusBarManager";
@@ -49,7 +49,7 @@ export default class App extends Component<Props> {
             )
         }else{
             return(
-                <MenuManager/>
+                <MenuManager callback={this.getGame.bind(this)}/>
             )
         }
     }
@@ -59,7 +59,7 @@ export default class App extends Component<Props> {
             return (
                 <View style={{flex: 1}}>
                     <StatusBar/>
-                    <HeaderManager callback={this.getNavigation.bind(this)} display={true}/>
+                    <HeaderManager callback={this.getNavigation.bind(this)} game={this.state.game}/>
                     {this.renderContent()}
                 </View>
             );

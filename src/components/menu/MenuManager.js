@@ -12,13 +12,21 @@ import {
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
+import Colors                   from "../../theme/colors";
+import MenuChooseType           from "./MenuChooseType";
+import MenuChooseMode           from "./MenuChooseMode";
+import MenuChooseDifficulty     from "./MenuChooseDifficulty";
 
 export default class MenuManager extends Component{
 
     constructor(props) {
         super(props);
         this.props = props;
-        this.state = {};
+        this.state = {
+            mode:"classic",
+            type:"pve",
+            difficulty: "impossible",
+        };
     }
 
     componentWillReceiveProps(props){
@@ -27,34 +35,58 @@ export default class MenuManager extends Component{
     componentDidMount()  {
     }
 
-    renderGame(){
-        if (this.state.game){
-            //this.state.callback(true);
+    handleStartGame(){
+        this.props.callback({game:true});
+        this.setState({game:true});
+    }
+
+    getGame(data){
+        if (data){
+            if (data.mode)
+                this.setState({mode:data.mode});
+            if (data.type)
+                this.setState({type:data.type});
+            if (data.difficulty)
+                this.setState({difficulty:data.difficulty})
+        }
+    }
+
+    handleExitGame(){
+        this.props.callback({game:false});
+        this.setState({game:false})
+    }
+
+    renderStart(){
+        if (this.state.mode && this.state.difficulty && this.state.type){
             return(
-                <GameManager/>
+                <View>
+                    <Button
+                        color={"#15133c"}
+                        title="start game"
+                        onPress={this.handleStartGame.bind(this)}
+                    />
+                </View>
+            )
+        }else{return(<View/>)}
+    }
+
+    renderContent(){
+        if (this.state.game) {
+            return (
+                <GameManager type={this.state.type} mode={this.state.mode} difficulty={this.state.difficulty} callback={this.handleExitGame.bind(this)}/>
             )
         }else{
             return(
-                <View>
-                    <Image source={require('../../images/banner.png')} style={{height:Sizes.screen.height / 1.5,width:Sizes.screen.width}}/>
-                    <View style={{margin:20}}>
-                        <Button
-                            title={"Game test"}
-                            onPress={()=>{this.setState({game:true})}}
-                            color={"#00BFA5"}/>
-                    </View>
+                <View style={styles.container}>
+                    <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
+                    <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty }callback={this.getGame.bind(this)}/>
+                    <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
+                    {this.renderStart()}
                 </View>
             )
         }
     }
 
-    renderContent(){
-        return(
-            <View>
-                {this.renderGame()}
-            </View>
-        )
-    }
 
     render(){
         return(

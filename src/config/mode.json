@@ -1,0 +1,16 @@
+{
+  "mode": [
+    {
+      "PVE": {
+        "reference": "pve",
+        "ia": true,
+        "player": true
+      },
+      "EVE": {
+        "reference": "eve",
+        "ia": true,
+        "player": false
+      }
+    }
+  ]
+}
