@@ -6,19 +6,14 @@ import {
     View,
     Image
 } from 'react-native';
-import HeaderManager      from "./components/header/HeaderManager";
-import StatusBar          from "./components/header/StatusBarManager";
-import About              from "./components/about/About";
-import Rules              from "./components/rules/Rules";
-import MenuManager        from "./components/menu/MenuManager";
-import Sizes              from "./theme/sizes";
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import HeaderManager        from "./components/header/HeaderManager";
+import StatusBar            from "./components/header/StatusBarManager";
+import About                from "./components/about/About";
+import Rules                from "./components/rules/Rules";
+import MenuManager          from "./components/menu/MenuManager";
+import Sizes                from "./theme/sizes";
+import Colors               from "./theme/colors";
+import LocalizedStrings     from "./localization/LocalizedStrings";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -33,7 +28,7 @@ export default class App extends Component<Props> {
     }
 
     componentDidMount()  {
-      console.warn("index: ", JSON.stringify(this.state))
+        console.warn("index: ", JSON.stringify(this.state))
     }
 
     getNavigation(state){
@@ -41,13 +36,13 @@ export default class App extends Component<Props> {
     }
 
     getGame(game){
-      this.setState({game:game})
+        this.setState({game:game})
     }
 
     renderContent(){
         if (this.state.status === "rules"){
             return(
-               <Rules/>
+                <Rules/>
             )
         }else if (this.state.status === "about"){
             return(
@@ -55,19 +50,28 @@ export default class App extends Component<Props> {
             )
         }else{
             return(
-              <MenuManager game={this.state.game}/>
+                <MenuManager game={this.state.game}/>
             )
         }
     }
 
     render() {
-        return (
-            <View style={{flex:1}}>
-              <StatusBar/>
-              <HeaderManager callback={this.getNavigation.bind(this)}/>
-                {this.renderContent()}
-            </View>
-        );
+        if (Platform.OS === "android") {
+            return (
+                <View style={{flex: 1}}>
+                    <StatusBar/>
+                    <HeaderManager callback={this.getNavigation.bind(this)}/>
+                    {this.renderContent()}
+                </View>
+            );
+        }else{
+            return(
+                <View style={[styles.container, {backgroundColor: Colors.failure}]}>
+                    <Image source={require('./images/failure.jpg')} style={{height:Sizes.screen.height / 3,width:Sizes.screen.width}}/>
+                    <Text style={styles.warning}>{LocalizedStrings.getStringOfKey("gameAvailable")}</Text>
+                </View>
+            )
+        }
     }
 }
 
@@ -78,14 +82,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+    warning:{
+        fontSize:15,
+        color: "white",
+        alignSelf:'center',
+        textAlign: "center",
+    }
 });

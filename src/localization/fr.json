@@ -1,0 +1,16 @@
+{
+  "title": "titre",
+
+  "rock": "pierre",
+  "paper": "papier",
+  "scissors": "ciseaux",
+  "lizard": "lezard",
+  "spock": "spock",
+
+
+  "about": "a propos",
+  "rules": "règles",
+  "play": "jouer",
+
+  "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
+}

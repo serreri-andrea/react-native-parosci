@@ -7,6 +7,7 @@ export default {
     backgroundSecondary: "#BABDC2",
     primary : "#00BFA5",
     secondary: "#E53935",
+    failure: "#ff3234",
     text :{
         textPrimary:"#222222",
         textSecondary:"#9a9a9a",

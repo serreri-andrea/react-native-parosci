@@ -1,0 +1,16 @@
+{
+  "title": "title",
+
+  "rock": "rock",
+  "paper": "paper",
+  "scissors": "scissors",
+  "lizard": "lizard",
+  "spock": "spock",
+
+
+  "about": "about",
+  "rules": "rules",
+  "play": "play",
+
+  "gameAvailable": "This game is currently only working on android."
+}
