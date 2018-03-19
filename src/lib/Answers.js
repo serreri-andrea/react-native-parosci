@@ -9,11 +9,9 @@ const Answers = {
     answersIAEasy(mode){
         if (!mode)
             mode = "classic";
-        else {
-            let array = Rules.getCards(mode);
-            let random = array[Math.floor(Math.random() * array.length)];
-            return(random.reference)
-        }
+        let array = Rules.getCards(mode);
+        let random = array[Math.floor(Math.random() * array.length)];
+        return(random.reference)
     },
 
     answersIACheat(mode, opponentCard){
