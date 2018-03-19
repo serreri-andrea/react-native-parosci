@@ -48,11 +48,20 @@ export default class GameManager extends Component{
     }
 
     getResponse(card){
-        this.setState({playerTwoCard:Answers.answersIAEasy(this.props.mode), playerOneCard:card})
+        let difficulty = this.props.difficulty;
+        let mode = this.props.mode;
+        if (difficulty === "medium"){
+            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
+        }else if (difficulty === "hard"){
+            this.setState({playerTwoCard:Answers.answersIACheat(mode, card)})
+        }else{
+            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
+        }
+        this.setState({playerOneCard:card})
     }
 
     getWinner(){
-        let winner = Rules.getVictory(this.state.playerOneCard,this.state.playerTwoCard );
+        let winner = Rules.getVictory(this.props.mode, this.state.playerOneCard,this.state.playerTwoCard );
         if (winner === 1){
             return ("You")
         }else if (winner === 2){

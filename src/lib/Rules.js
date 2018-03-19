@@ -17,16 +17,16 @@ const Rules = {
         return(cards)
     },
 
-    getVictory(playerOneCard, playerTwoCard){
+    getVictory(mode, playerOneCard, playerTwoCard){
         if (playerOneCard && playerTwoCard) {
-            let rules = this.getCards();
+            let cards = this.getCards(mode);
             let winner = "";
-            for (let i = 0; i < rules.length; i++) {
-                if (rules[i].reference === playerOneCard) {
-                    if (rules[i].wins.includes(playerTwoCard)) {
+            for (let i = 0; i < cards.length; i++) {
+                if (cards[i].reference === playerOneCard) {
+                    if (cards[i].wins.includes(playerTwoCard)) {
                         /*Player one have win*/
                         return (winner = 1)
-                    } else if (rules[i].loose.includes(playerTwoCard)) {
+                    } else if (cards[i].loose.includes(playerTwoCard)) {
                         /*Player two have win */
                         return (winner = 2)
                     } else {
