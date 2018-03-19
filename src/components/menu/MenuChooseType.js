@@ -8,11 +8,13 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
+import GameType                 from "../../config/game";
 
 export default class MenuChooseType extends Component{
 
@@ -34,16 +36,16 @@ export default class MenuChooseType extends Component{
 
     render(){
         if (this.state.mode) {
-            return (
-                <View style={styles.container}>
+            return(
+                <View>
                     <Button
-                        title={"Player vs BOT"}
+                        title={"pve"}
                         onPress={this.handleType.bind(this, "pve")}
                         color={this.state.type === "pve" ? Colors.secondary : Colors.primary}/>
                     <Button
-                        title={"BOT vs BOT"}
-                        onPress={this.handleType.bind(this, "eve")}
-                        color={this.state.type === "eve" ? Colors.secondary : Colors.primary}/>
+                        title={"pvp"}
+                        onPress={this.handleType.bind(this, "pvp")}
+                        color={this.state.type === "pvp" ? Colors.secondary : Colors.primary}/>
                 </View>
             )
         }else{return(<View/>)}
