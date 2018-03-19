@@ -8,11 +8,13 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
+import GameDifficulty           from "../../config/difficulty";
 
 export default class MenuChooseDifficulty extends Component{
 
@@ -32,25 +34,33 @@ export default class MenuChooseDifficulty extends Component{
         this.state.callback({difficulty:difficulty})
     }
 
-    render(){
-        if (this.state.mode && this.state.type) {
+    renderDifficulty(item){
+        if (item && item.item) {
             return (
-                <View style={styles.container}>
+                <View>
                     <Button
-                        title={"easy"}
-                        onPress={this.handleDifficulty.bind(this, "easy")}
-                        color={this.state.difficulty=== "easy" ? Colors.secondary : Colors.primary}/>
-                    <Button
-                        title={"medium"}
-                        onPress={this.handleDifficulty.bind(this, "medium")}
-                        color={this.state.difficulty=== "medium" ? Colors.secondary : Colors.primary}/>
-                    <Button
-                        title={"impossible"}
-                        onPress={this.handleDifficulty.bind(this, "impossible")}
-                        color={this.state.difficulty=== "impossible" ? Colors.secondary : Colors.primary}/>
+                        title={item.item.reference}
+                        onPress={this.handleDifficulty.bind(this, item.item.reference)}
+                        color={this.state.difficulty === item.item.reference ? Colors.secondary : Colors.primary}
+                    />
                 </View>
             )
         }else{return(<View/>)}
+    }
+
+    render(){
+        if (this.state.mode && this.state.type) {
+            return (
+                <FlatList
+                    data={GameDifficulty}
+                    extraData={this.state}
+                    horizontal={true}
+                    renderItem={this.renderDifficulty.bind(this)}
+                    keyExtractor={(item, index) => index.toString()}/>
+            )
+        }else{
+            return(<View/>)
+        }
     }
 }
 

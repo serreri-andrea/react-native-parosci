@@ -25,7 +25,7 @@ export default class MenuManager extends Component{
         this.state = {
             mode:"classic",
             type:"pve",
-            difficulty: "impossible",
+            difficulty: "hard",
         };
     }
 
@@ -36,11 +36,19 @@ export default class MenuManager extends Component{
     }
 
     handleStartGame(){
+        //send game status to navigation
         this.props.callback({game:true});
         this.setState({game:true});
     }
 
+    handleExitGame(){
+        // change status of game
+        this.props.callback({game:false});
+        this.setState({game:false})
+    }
+
     getGame(data){
+        //set choosen data before launching the game
         if (data){
             if (data.mode)
                 this.setState({mode:data.mode});
@@ -49,11 +57,6 @@ export default class MenuManager extends Component{
             if (data.difficulty)
                 this.setState({difficulty:data.difficulty})
         }
-    }
-
-    handleExitGame(){
-        this.props.callback({game:false});
-        this.setState({game:false})
     }
 
     renderStart(){

@@ -31,10 +31,12 @@ export default class App extends Component<Props> {
     }
 
     getNavigation(state){
+        //return the actual navigation view
         this.setState({status:state})
     }
 
     getGame(game){
+        // return the status of the game: on/off
         this.setState({game:game})
     }
 
