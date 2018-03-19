@@ -40,7 +40,7 @@ export default class GameManager extends Component{
             "Warning",
             "Do you want to exit the game ?",
             [
-                {text: "yes", onPress: () => this.props.callback()},
+                {text: "yes", onPress: () => this.props.updateGame()},
                 {text: "no", onPress:null}
             ],
             {cancelable: false}

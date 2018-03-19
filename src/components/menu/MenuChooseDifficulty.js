@@ -15,6 +15,7 @@ import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
 import GameDifficulty           from "../../config/difficulty";
+import Localization             from "../../localization/LocalizedStrings";
 
 export default class MenuChooseDifficulty extends Component{
 
@@ -31,7 +32,7 @@ export default class MenuChooseDifficulty extends Component{
 
     handleDifficulty(difficulty){
         this.setState({difficulty:difficulty})
-        this.state.callback({difficulty:difficulty})
+        this.state.updatePreset({difficulty:difficulty})
     }
 
     renderDifficulty(item){
@@ -39,7 +40,7 @@ export default class MenuChooseDifficulty extends Component{
             return (
                 <View>
                     <Button
-                        title={item.item.reference}
+                        title={Localization.getStringOfKey(item.item.reference)}
                         onPress={this.handleDifficulty.bind(this, item.item.reference)}
                         color={this.state.difficulty === item.item.reference ? Colors.secondary : Colors.primary}
                     />
@@ -54,7 +55,7 @@ export default class MenuChooseDifficulty extends Component{
                 <FlatList
                     data={GameDifficulty}
                     extraData={this.state}
-                    horizontal={true}
+                    horizontal={false}
                     renderItem={this.renderDifficulty.bind(this)}
                     keyExtractor={(item, index) => index.toString()}/>
             )

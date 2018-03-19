@@ -76,14 +76,14 @@ export default class MenuManager extends Component{
     renderContent(){
         if (this.state.game) {
             return (
-                <GameManager type={this.state.type} mode={this.state.mode} difficulty={this.state.difficulty} callback={this.handleExitGame.bind(this)}/>
+                <GameManager type={this.state.type} mode={this.state.mode} difficulty={this.state.difficulty} updateGame={this.handleExitGame.bind(this)}/>
             )
         }else{
             return(
                 <View style={styles.container}>
-                    <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
-                    <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty }callback={this.getGame.bind(this)}/>
-                    <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
+                    <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
+                    <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty } updatePreset={this.getGame.bind(this)}/>
+                    <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
                     {this.renderStart()}
                 </View>
             )

@@ -15,6 +15,7 @@ import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
 import GameMode                 from "../../config/game";
+import Localization             from "../../localization/LocalizedStrings";
 
 export default class MenuChooseMode extends Component{
 
@@ -32,7 +33,7 @@ export default class MenuChooseMode extends Component{
 
     handleMode(mode){
         this.setState({mode:mode});
-        this.state.callback({mode:mode})
+        this.state.updatePreset({mode:mode})
     }
 
     renderMode(item){
@@ -40,7 +41,7 @@ export default class MenuChooseMode extends Component{
             return (
                 <View>
                     <Button
-                        title={item.item.reference}
+                        title={Localization.getStringOfKey(item.item.reference)}
                         onPress={this.handleMode.bind(this, item.item.reference)}
                         color={this.state.mode === item.item.reference ? Colors.secondary : Colors.primary}
                     />
@@ -54,7 +55,7 @@ export default class MenuChooseMode extends Component{
             <FlatList
                 data={GameMode}
                 extraData={this.state}
-                horizontal={true}
+                horizontal={false}
                 renderItem={this.renderMode.bind(this)}
                 keyExtractor={(item, index) => index.toString()}/>
         )

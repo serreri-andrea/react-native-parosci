@@ -12,5 +12,15 @@
   "rules": "rules",
   "play": "play",
 
+  "classic": "classic",
+  "extended": "big bang theory",
+
+  "easy": "easy",
+  "medium": "medium",
+  "hard": "hard",
+
+  "pve": "Player vs IA",
+  "eve": "IA vs IA",
+
   "gameAvailable": "This game is currently only working on android."
 }

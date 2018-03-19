@@ -43,6 +43,7 @@ export default class CardBoard extends Component{
                     data={this.props.cards}
                     extraData={this.state}
                     horizontal={true}
+                    ItemSeparatorComponent={() => <View style={{margin:20}}/>}
                     renderItem={this.renderCards.bind(this)}
                     keyExtractor={(item, index) => index.toString()}/>
             </View>
