@@ -18,26 +18,28 @@ export default class IAManager extends Component{
 
     constructor(props) {
         super(props);
-        this.props = props;
         this.state = {};
     }
 
     componentDidMount() {
-        setTimeout(() => {
+        this.timeout = setInterval(() => {
             let answer = Answers.answersIAEasy(this.props.mode);
-            this.setState({card: answer}, () => {
-                setTimeout(() => {
-                    this.handleChoosedCard(this.state.card)
-                }, 1000)
-            })
-        }, 1000)
+            this.setState({card: answer});
+            this.handleChoosedCard(answer);
+        }, 3000)
+    }
+
+    componentWillReceiveProps(props){
     }
 
 
     handleChoosedCard(card){
-        //this.setState({card:card});
-        this.props.callback(card);
-        //clearTimeout();
+        if (this.props.score.p1Score >= 3 || this.props.score.p2Score>= 3){
+            clearInterval(this.timeout);
+            clearTimeout(this.timeout);
+        }else {
+            this.props.callback(card);
+        }
     }
 
     renderCards(item){

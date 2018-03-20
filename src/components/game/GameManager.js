@@ -70,7 +70,6 @@ export default class GameManager extends Component{
         let difficulty = this.props.difficulty;
         let mode = this.props.mode;
         this.previousCard = this.state.playerOneCard;
-        console.warn("prevcard: ", this.previousCard)
         if (difficulty === "medium"){
             let IACard = Answers.answersIAMedium(mode, this.previousCard, card);
             this.updateScore(card, IACard);
@@ -95,24 +94,38 @@ export default class GameManager extends Component{
             )
         }else{
             return(
-                <IAManager cards={Rules.getCards(this.props.mode)} mode={this.props.mode} callback={this.getResponse.bind(this)}/>
+                <IAManager cards={Rules.getCards(this.props.mode)} mode={this.props.mode} callback={this.getResponse.bind(this)} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
             )
         }
     }
 
     renderGame(){
-        if (this.state.p1Score >= 3  || this.state.p2Score >= 3){
-            return(
-                <View>
-                    <Text> game if finished with, p1 score : {this.state.p1Score} and p2 score: {this.state.p2Score}</Text>
-                </View>
-            )
+        if (this.props.type === "pve") {
+            if (this.state.p1Score >= 3 || this.state.p2Score >= 3) {
+                return (
+                    <View>
+                        <Text> game if finished with, p1 score : {this.state.p1Score} and p2
+                            score: {this.state.p2Score}</Text>
+                    </View>
+                )
+            } else {
+                return (
+                    <CardBoard cards={Rules.getCards(this.props.mode)} callback={this.getResponse.bind(this)}/>
+                )
+            }
         }else{
-            return(
-                <View>
-                    {this.getPlays()}
-                </View>
-            )
+            if (this.state.p1Score > 3 || this.state.p2Score > 3) {
+                return(
+                    <View>
+                        <Text> game if finished with, IA 1 : {this.state.p1Score} and IA 2 score: {this.state.p2Score}</Text>
+                    </View>
+                )
+            }else{
+                return(
+                    <IAManager cards={Rules.getCards(this.props.mode)} mode={this.props.mode} callback={this.getResponse.bind(this)} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
+
+                )
+            }
         }
     }
 
