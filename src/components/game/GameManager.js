@@ -86,19 +86,6 @@ export default class GameManager extends Component{
         this.setState({playerOneCard:card, card:null})
     }
 
-    getPlays(){
-        if (this.props.type === "pve"){
-            return(
-                <CardBoard cards={Rules.getCards(this.props.mode)} callback={this.getResponse.bind(this)}/>
-
-            )
-        }else{
-            return(
-                <IAManager cards={Rules.getCards(this.props.mode)} mode={this.props.mode} callback={this.getResponse.bind(this)} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
-            )
-        }
-    }
-
     renderGame(){
         if (this.props.type === "pve") {
             if (this.state.p1Score >= 3 || this.state.p2Score >= 3) {

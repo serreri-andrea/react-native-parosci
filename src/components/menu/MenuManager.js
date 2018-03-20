@@ -21,7 +21,6 @@ export default class MenuManager extends Component{
 
     constructor(props) {
         super(props);
-        this.props = props;
         this.state = {
             mode:"classic",
             type:"pve",

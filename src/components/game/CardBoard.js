@@ -20,7 +20,7 @@ export default class CardBoard extends Component{
     }
 
     handleChoosedCard(card){
-        this.setState({card:card})
+        this.setState({card:card});
         this.props.callback(card)
     }
 

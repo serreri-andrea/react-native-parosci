@@ -24,8 +24,6 @@ export default class HeaderManager  extends Component{
     }
 
     componentWillReceiveProps(props){
-        //je recois game
-        //console.warn("header receive props: ", props)
     }
 
     componentDidMount()  {
