@@ -8,11 +8,14 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
+import GameMode                 from "../../config/game";
+import Localization             from "../../localization/LocalizedStrings";
 
 export default class MenuChooseMode extends Component{
 
@@ -29,22 +32,32 @@ export default class MenuChooseMode extends Component{
     }
 
     handleMode(mode){
-        this.setState({mode:mode})
-        this.state.callback({mode:mode})
+        this.setState({mode:mode});
+        this.state.updatePreset({mode:mode})
+    }
+
+    renderMode(item){
+        if (item && item.item) {
+            return (
+                <View>
+                    <Button
+                        title={Localization.getStringOfKey(item.item.reference)}
+                        onPress={this.handleMode.bind(this, item.item.reference)}
+                        color={this.state.mode === item.item.reference ? Colors.secondary : Colors.primary}
+                    />
+                </View>
+            )
+        }else{return(<View/>)}
     }
 
     render(){
         return(
-            <View style={styles.container}>
-                <Button
-                    title={"Rock, paper, scissors"}
-                    onPress={this.handleMode.bind(this, "classic")}
-                    color={this.state.mode === "classic" ? Colors.secondary : Colors.primary}/>
-                <Button
-                    title={"Rock, paper, scissors, lizard, spock"}
-                    onPress={this.handleMode.bind(this, "extended")}
-                    color={this.state.mode === "extended" ? Colors.secondary : Colors.primary}/>
-            </View>
+            <FlatList
+                data={GameMode}
+                extraData={this.state}
+                horizontal={false}
+                renderItem={this.renderMode.bind(this)}
+                keyExtractor={(item, index) => index.toString()}/>
         )
     }
 }

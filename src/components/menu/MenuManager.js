@@ -25,7 +25,7 @@ export default class MenuManager extends Component{
         this.state = {
             mode:"classic",
             type:"pve",
-            difficulty: "impossible",
+            difficulty: "easy",
         };
     }
 
@@ -36,11 +36,19 @@ export default class MenuManager extends Component{
     }
 
     handleStartGame(){
+        //send game status to navigation
         this.props.callback({game:true});
         this.setState({game:true});
+        console.warn("START: ", this.state)
+    }
+
+    handleExitGame(){
+        this.setState({game:false})
+        this.props.callback({game:false})
     }
 
     getGame(data){
+        //set choosen data before launching the game
         if (data){
             if (data.mode)
                 this.setState({mode:data.mode});
@@ -49,11 +57,6 @@ export default class MenuManager extends Component{
             if (data.difficulty)
                 this.setState({difficulty:data.difficulty})
         }
-    }
-
-    handleExitGame(){
-        this.props.callback({game:false});
-        this.setState({game:false})
     }
 
     renderStart(){
@@ -73,14 +76,14 @@ export default class MenuManager extends Component{
     renderContent(){
         if (this.state.game) {
             return (
-                <GameManager type={this.state.type} mode={this.state.mode} difficulty={this.state.difficulty} callback={this.handleExitGame.bind(this)}/>
+                <GameManager type={this.state.type} mode={this.state.mode} difficulty={this.state.difficulty} updateGame={this.handleExitGame.bind(this)}/>
             )
         }else{
             return(
                 <View style={styles.container}>
-                    <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
-                    <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty }callback={this.getGame.bind(this)}/>
-                    <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} callback={this.getGame.bind(this)}/>
+                    <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
+                    <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty } updatePreset={this.getGame.bind(this)}/>
+                    <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
                     {this.renderStart()}
                 </View>
             )

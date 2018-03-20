@@ -14,6 +14,8 @@ import {
 import ScoreBoard               from "./ScoreBoard";
 import CardBoard                from "./CardBoard";
 import GameRuler                from "../../config/game";
+import Rules                    from "../../lib/Rules";
+import Answers                  from "../../lib/Answers";
 
 export default class GameManager extends Component{
 
@@ -38,80 +40,49 @@ export default class GameManager extends Component{
             "Warning",
             "Do you want to exit the game ?",
             [
-                {text: "yes", onPress: () => this.props.callback()},
+                {text: "yes", onPress: () => this.props.updateGame()},
                 {text: "no", onPress:null}
             ],
             {cancelable: false}
         )
     }
 
-    getCardFromRule(){
-        let cards = {};
-        for (let i = 0; i < GameRuler.game.length; i++){
-            if (GameRuler.game[i].reference === this.props.mode){
-                cards = GameRuler.game[i].cards
-            }
+    getResponse(card){
+        let difficulty = this.props.difficulty;
+        let mode = this.props.mode;
+        if (difficulty === "medium"){
+            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
+        }else if (difficulty === "hard"){
+            this.setState({playerTwoCard:Answers.answersIACheat(mode, card)})
+        }else{
+            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
         }
-        return(cards)
+        this.setState({playerOneCard:card})
     }
 
-    getRules(){
-        let rules = {};
-        for (let i = 0; i < GameRuler.game.length; i++){
-            if (GameRuler.game[i].reference === this.props.mode){
-                rules = GameRuler.game[i].rules
-            }
-        }
-        return(rules)
-    }
-
-    getCardPlayed(card){
-        this.setState({yourCard:card});
-        if (this.props.difficulty === "easy"){
-            let array = this.getCardFromRule();
-            let random = array[Math.floor(Math.random()*array.length)];
-            this.setState({IACard: random});
-            //return(random)
-        }else if (this.props.difficulty === "impossible"){
-            let rules = this.getRules();
-            for(let i = 0; i < rules.length; i++){
-                if (rules[i].reference === card){
-                    let array = rules[i].loose;
-                    let random = array[Math.floor(Math.random()*array.length)];
-                    this.setState({IACard:random});
-                }
-            }
+    getWinner(){
+        let winner = Rules.getVictory(this.props.mode, this.state.playerOneCard,this.state.playerTwoCard );
+        if (winner === 1){
+            return ("You")
+        }else if (winner === 2){
+            return ("Opponent")
+        }else{
+            return("Draw")
         }
     }
 
-    getVictory(){
-        if (this.state.yourCard && this.state.IACard){
-            let rules = this.getRules();
-            let winner = "";
-            for(let i = 0; i < rules.length; i++){
-                if (rules[i].reference === this.state.yourCard){
-                    if (rules[i].wins.includes(this.state.IACard)){
-                        return (winner = "YOU")
-                    }else if (rules[i].loose.includes(this.state.IACard)){
-                        return (winner = "IA")
-                    }else{
-                        return (winner = "draw")
-                    }
-                }
-            }
-            return(winner)
-        }else{}
-    }
 
     renderMatchInfo(){
-        if (this.state.yourCard && this.state.IACard) {
+        if (this.state.playerOneCard && this.state.playerTwoCard) {
             return (
                 <View>
-                    <Text> You played: {this.state.yourCard || ""}</Text>
-                    <Text> IA plays: {this.state.IACard || ""}</Text>
-                    <Text> Winner: {this.getVictory()}</Text>
+                    <Text> You played: {this.state.playerOneCard || ""}</Text>
+                    <Text> IA plays: {this.state.playerTwoCard || ""}</Text>
+                    <Text> Winner: {this.getWinner()}</Text>
                 </View>
             )
+        }else{
+            return(<View/>)
         }
     }
 
@@ -122,7 +93,7 @@ export default class GameManager extends Component{
                 <View style={{flex:1}}>
                     {this.renderMatchInfo()}
                 </View>
-                <CardBoard cards={this.getCardFromRule()} callback={this.getCardPlayed.bind(this)}/>
+                <CardBoard cards={Rules.getCards(this.props.mode)} callback={this.getResponse.bind(this)}/>
                 <Button
                 title="back"
                 color="pink"

@@ -12,5 +12,15 @@
   "rules": "règles",
   "play": "jouer",
 
+  "classic": "classique",
+  "extended": "big bang theory",
+
+  "easy": "facile",
+  "medium": "moyen",
+  "hard": "difficile",
+
+  "pve": "Joueur vs Bot",
+  "eve": "Bot vs Bot",
+
   "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
 }

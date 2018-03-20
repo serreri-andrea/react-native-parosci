@@ -8,11 +8,14 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
 import Colors                   from "../../theme/colors";
+import GameDifficulty           from "../../config/difficulty";
+import Localization             from "../../localization/LocalizedStrings";
 
 export default class MenuChooseDifficulty extends Component{
 
@@ -29,28 +32,36 @@ export default class MenuChooseDifficulty extends Component{
 
     handleDifficulty(difficulty){
         this.setState({difficulty:difficulty})
-        this.state.callback({difficulty:difficulty})
+        this.state.updatePreset({difficulty:difficulty})
+    }
+
+    renderDifficulty(item){
+        if (item && item.item) {
+            return (
+                <View>
+                    <Button
+                        title={Localization.getStringOfKey(item.item.reference)}
+                        onPress={this.handleDifficulty.bind(this, item.item.reference)}
+                        color={this.state.difficulty === item.item.reference ? Colors.secondary : Colors.primary}
+                    />
+                </View>
+            )
+        }else{return(<View/>)}
     }
 
     render(){
         if (this.state.mode && this.state.type) {
             return (
-                <View style={styles.container}>
-                    <Button
-                        title={"easy"}
-                        onPress={this.handleDifficulty.bind(this, "easy")}
-                        color={this.state.difficulty=== "easy" ? Colors.secondary : Colors.primary}/>
-                    <Button
-                        title={"medium"}
-                        onPress={this.handleDifficulty.bind(this, "medium")}
-                        color={this.state.difficulty=== "medium" ? Colors.secondary : Colors.primary}/>
-                    <Button
-                        title={"impossible"}
-                        onPress={this.handleDifficulty.bind(this, "impossible")}
-                        color={this.state.difficulty=== "impossible" ? Colors.secondary : Colors.primary}/>
-                </View>
+                <FlatList
+                    data={GameDifficulty}
+                    extraData={this.state}
+                    horizontal={false}
+                    renderItem={this.renderDifficulty.bind(this)}
+                    keyExtractor={(item, index) => index.toString()}/>
             )
-        }else{return(<View/>)}
+        }else{
+            return(<View/>)
+        }
     }
 }
 
