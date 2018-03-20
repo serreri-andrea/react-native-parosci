@@ -53,7 +53,7 @@ export default class MenuChooseDifficulty extends Component{
         if (this.state.mode && this.state.type) {
             return (
                 <View>
-                    <Text style={{fontSize:15, color:"white", backgroundColor:"#455A64", textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:1 , borderTopWidth:1}}>MODE DE DIFFICULTE</Text>
+                    <Text style={styles.title}>{Localization.getStringOfKey("titleDifficulties").toUpperCase()}</Text>
                     <FlatList
                         style={{width:Sizes.screen.width}}
                         data={GameDifficulty}
