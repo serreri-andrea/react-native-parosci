@@ -23,6 +23,7 @@ export default class GameManager extends Component{
     constructor(props) {
         super(props);
         this.turn = 0;
+        this.previousCard = null;
         this.state = {
             p1Score:0,
             p2Score:0,
@@ -68,8 +69,10 @@ export default class GameManager extends Component{
         this.turn = this.turn + 1;
         let difficulty = this.props.difficulty;
         let mode = this.props.mode;
+        this.previousCard = this.state.playerOneCard;
+        console.warn("prevcard: ", this.previousCard)
         if (difficulty === "medium"){
-            let IACard = Answers.answersIAEasy(mode);
+            let IACard = Answers.answersIAMedium(mode, this.previousCard, card);
             this.updateScore(card, IACard);
             this.setState({playerTwoCard:IACard})
         }else if (difficulty === "hard"){
