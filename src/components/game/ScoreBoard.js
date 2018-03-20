@@ -34,9 +34,15 @@ export default class ScoreBoard extends Component{
         if (this.props.playerOneCard && this.props.playerTwoCard) {
             return (
                 <View>
-                    <Text>{Localization.getStringOfKey("playerA")} {Localization.getStringOfKey("played")}: {this.props.playerOneCard || ""}</Text>
-                    <Text>{Localization.getStringOfKey("playerB")} {Localization.getStringOfKey("played")}: {this.props.playerTwoCard || ""}</Text>
-                    <Text>{Localization.getStringOfKey("winner")}: {this.getWinner()}</Text>
+                    <Text style={styles.title}>{Localization.getStringOfKey("playerA")} {Localization.getStringOfKey("played")}:
+                        <Text style={styles.res}> {Localization.getStringOfKey(this.props.playerOneCard).toUpperCase() || ""}</Text>
+                    </Text>
+                    <Text style={styles.title}>{Localization.getStringOfKey("playerB")} {Localization.getStringOfKey("played")}:
+                        <Text style={styles.res}> {Localization.getStringOfKey(this.props.playerTwoCard).toUpperCase() || ""}</Text>
+                    </Text>
+                    <Text style={styles.title}>{Localization.getStringOfKey("winner")}:
+                        <Text style={styles.res}>{this.getWinner()}</Text>
+                    </Text>
                 </View>
             )
         }else{
@@ -50,7 +56,9 @@ export default class ScoreBoard extends Component{
         let p2Score = this.props.score && this.props.score.p2Score ? this.props.score.p2Score : 0;
         return(
             <View style={styles.container}>
-                <Text>{Localization.getStringOfKey("score")}: {p1Score} - {p2Score}</Text>
+                <Text style={styles.title}>{Localization.getStringOfKey("score")}:
+                    <Text style={styles.res}>{p1Score} - {p2Score}</Text>
+                </Text>
                 {this.renderMatchInfo()}
             </View>
         )
@@ -64,4 +72,12 @@ const styles = StyleSheet.create({
         marginBottom:10,
         flex:1,
     },
+    title:{
+        fontSize:15,
+        color: "black",
+    },
+    res:{
+        fontSize:15,
+        color:Colors.secondary
+    }
 });
