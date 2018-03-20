@@ -29,7 +29,6 @@ export default class MenuChooseMode extends Component{
     }
 
     componentDidMount()  {
-        //console.warn("props: ", this.props, "state: ", this.state)
     }
 
     handleMode(mode){
@@ -37,18 +36,14 @@ export default class MenuChooseMode extends Component{
         this.state.updatePreset({mode:mode})
     }
 
-    /*  <Button
-                        title={Localization.getStringOfKey(item.item.reference)}
-                        onPress={this.handleMode.bind(this, item.item.reference)}
-                        color={this.state.mode === item.item.reference ? Colors.secondary : Colors.primary}
-                    />*/
-
     renderMode(item){
         if (item && item.item) {
             return (
                 <TouchableWithoutFeedback onPress={this.handleMode.bind(this, item.item.reference)}
-                                          style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.mode === item.item.reference ? Colors.secondary :Colors.main, alignItems:'center'}}>
-                    <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.mode === item.item.reference ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                                          style={{width:Sizes.screen.width, height:Sizes.screen.height / 6,
+                                          backgroundColor:this.state.mode === item.item.reference ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                    <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6,
+                    backgroundColor:this.state.mode === item.item.reference ? Colors.secondary :Colors.main, alignItems:'center'}}>
                         <Image source={item.item.images} style={{backgroundColor:this.state.mode === item.item.reference ? Colors.secondary :Colors.main}}/>
                     </View>
                 </TouchableWithoutFeedback>
@@ -59,7 +54,7 @@ export default class MenuChooseMode extends Component{
     render(){
         return(
             <View>
-                <Text style={{fontSize:15, color:"white", backgroundColor:"#455A64", textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:1, borderTopWidth:1}}>MODE DE JEU</Text>
+                <Text style={styles.title}>{Localization.getStringOfKey("titleMode").toUpperCase()}</Text>
                 <FlatList
                     data={GameMode}
                     extraData={this.state}
@@ -76,4 +71,12 @@ const styles = StyleSheet.create({
         backgroundColor:"#BABDC2",
         flex:1
     },
+    title:{
+        fontSize:15,
+        color:"white",
+        backgroundColor:Colors.title,
+        textAlign:'center',
+        paddingTop:10, paddingBottom:10,
+        borderBottomWidth:1 , borderTopWidth:1
+    }
 });

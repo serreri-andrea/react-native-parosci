@@ -74,4 +74,12 @@ const styles = StyleSheet.create({
         backgroundColor:"#BABDC2",
         flex:1
     },
+    title:{
+        fontSize:15,
+        color:"white",
+        backgroundColor:Colors.title,
+        textAlign:'center',
+        paddingTop:10, paddingBottom:10,
+        borderBottomWidth:1 , borderTopWidth:1
+    }
 });
