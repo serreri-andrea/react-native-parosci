@@ -33,7 +33,7 @@ export default class ScoreBoard extends Component{
     renderMatchInfo(){
         if (this.props.playerOneCard && this.props.playerTwoCard) {
             return (
-                <View>
+                <View style={{alignItems:'center'}}>
                     <Text style={styles.title}>{Localization.getStringOfKey("playerA")} {Localization.getStringOfKey("played")}:
                         <Text style={styles.res}> {Localization.getStringOfKey(this.props.playerOneCard).toUpperCase() || ""}</Text>
                     </Text>
@@ -41,7 +41,7 @@ export default class ScoreBoard extends Component{
                         <Text style={styles.res}> {Localization.getStringOfKey(this.props.playerTwoCard).toUpperCase() || ""}</Text>
                     </Text>
                     <Text style={styles.title}>{Localization.getStringOfKey("winner")}:
-                        <Text style={styles.res}>{this.getWinner()}</Text>
+                        <Text style={styles.res}> {this.getWinner()}</Text>
                     </Text>
                 </View>
             )
@@ -57,7 +57,7 @@ export default class ScoreBoard extends Component{
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>{Localization.getStringOfKey("score")}:
-                    <Text style={styles.res}>{p1Score} - {p2Score}</Text>
+                    <Text style={styles.res}> {p1Score} - {p2Score}</Text>
                 </Text>
                 {this.renderMatchInfo()}
             </View>
