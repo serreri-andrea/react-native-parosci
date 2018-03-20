@@ -4,7 +4,7 @@ exports[`renders correctly: with props 1`] = `
 <View
   style={
     Object {
-      "flexDirection": "row",
+      "alignItems": "center",
       "justifyContent": "center",
       "marginBottom": 10,
       "marginTop": 10,
@@ -13,16 +13,25 @@ exports[`renders correctly: with props 1`] = `
 >
   <RCTScrollView
     ItemSeparatorComponent={[Function]}
+    columnWrapperStyle={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
     data="frghjkl"
     disableVirtualization={false}
     extraData={Object {}}
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={true}
+    horizontal={false}
     initialNumToRender={10}
+    invertStickyHeaders={undefined}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
+    numColumns={3}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -40,212 +49,86 @@ exports[`renders correctly: with props 1`] = `
     <View>
       <View
         onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
+        style={null}
       >
-        <View>
-          <Image
-            source={undefined}
-            style={
+        <View
+          style={
+            Array [
               Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
+                "flexDirection": "row",
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "marginTop": 10,
+              },
+            ]
+          }
+        >
+          <View />
+          <View />
+          <View />
         </View>
         <View
           style={
             Object {
-              "margin": 20,
+              "margin": 0,
             }
           }
         />
       </View>
       <View
         onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
+        style={null}
       >
-        <View>
-          <Image
-            source={undefined}
-            style={
+        <View
+          style={
+            Array [
               Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
+                "flexDirection": "row",
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "marginTop": 10,
+              },
+            ]
+          }
+        >
+          <View />
+          <View />
+          <View />
         </View>
         <View
           style={
             Object {
-              "margin": 20,
+              "margin": 0,
             }
           }
         />
       </View>
       <View
         onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
+        style={null}
       >
-        <View>
-          <Image
-            source={undefined}
-            style={
-              Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
-        </View>
         <View
           style={
-            Object {
-              "margin": 20,
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View>
-          <Image
-            source={undefined}
-            style={
+            Array [
               Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "margin": 20,
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View>
-          <Image
-            source={undefined}
-            style={
+                "flexDirection": "row",
+              },
               Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "margin": 20,
-            }
+                "alignItems": "center",
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "marginTop": 10,
+              },
+            ]
           }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View>
-          <Image
-            source={undefined}
-            style={
-              Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "margin": 20,
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-            },
-            null,
-          ]
-        }
-      >
-        <View>
-          <Image
-            source={undefined}
-            style={
-              Object {
-                "backgroundColor": "pink",
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
+        >
+          <View />
         </View>
       </View>
     </View>
@@ -257,7 +140,7 @@ exports[`renders correctly: without props 1`] = `
 <View
   style={
     Object {
-      "flexDirection": "row",
+      "alignItems": "center",
       "justifyContent": "center",
       "marginBottom": 10,
       "marginTop": 10,
@@ -266,16 +149,25 @@ exports[`renders correctly: without props 1`] = `
 >
   <RCTScrollView
     ItemSeparatorComponent={[Function]}
+    columnWrapperStyle={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
     data={undefined}
     disableVirtualization={false}
     extraData={Object {}}
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={true}
+    horizontal={false}
     initialNumToRender={10}
+    invertStickyHeaders={undefined}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
+    numColumns={3}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}

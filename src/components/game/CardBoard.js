@@ -27,14 +27,18 @@ export default class CardBoard extends Component{
     }
 
     renderCards(item){
-        return(
-            <View>
-                <TouchableHighlight onPress={this.handleChoosedCard.bind(this, item.item.reference)} underlayColor={'transparent'}>
-                    <Image source={this.state.card === item.item.reference ? item.item.images.selected : item.item.images.default}
-                           style={{height:Sizes.screen.height / 8, width:Sizes.screen.width / 5, margin:10}} />
-                </TouchableHighlight>
-            </View>
-        )
+        if (item && item.item && item.item.images) {
+            return (
+                <View>
+                    <TouchableHighlight onPress={this.handleChoosedCard.bind(this, item.item.reference)}
+                                        underlayColor={'transparent'}>
+                        <Image
+                            source={this.state.card === item.item.reference ? item.item.images.selected : item.item.images.default}
+                            style={{height:Sizes.screen.height / 8, width:Sizes.screen.width / 5, margin:10}}/>
+                    </TouchableHighlight>
+                </View>
+            )
+        }else{return(<View/>)}
     }
 
     render(){

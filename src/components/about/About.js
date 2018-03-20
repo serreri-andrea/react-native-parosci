@@ -1,5 +1,5 @@
 /**
- * Created by Andrea on 18/03/2018.
+ * created by andrea on 18/03/2018.
  */
 
 import React, { Component } from 'react';
@@ -7,29 +7,22 @@ import {
     StyleSheet,
     Text,
     View,
+    WebView
 } from 'react-native';
 
-export default class About extends Component{
+export default class about extends Component{
 
     constructor(props) {
         super(props);
     }
 
-    componentDidMount()  {
-    }
 
     render(){
         return(
-           <View style={styles.container}>
-               <Text> ABOUT </Text>
-           </View>
+            <WebView
+                source={{uri: 'https://github.com/serreri-andrea/react-native-parosci/blob/master/README.md'}}
+                style={{flex:1}}
+            />
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container:{
-        backgroundColor:"#00BFA5",
-        flex:1
-    },
-});

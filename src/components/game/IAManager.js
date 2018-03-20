@@ -45,7 +45,7 @@ export default class IAManager extends Component{
     }
 
     renderCards(item){
-        if (item && item.item) {
+        if (item && item.item && item.item.images) {
             return (
                 <View>
                     <Image source={this.state.card === item.item.reference ? item.item.images.selected : item.item.images.default}

@@ -15,36 +15,126 @@ exports[`renders correctly: with props 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 18,
+      }
+    }
   >
-     Score is : 
-    0
-     - 
-    0
+    Score
+    :
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#E53935",
+          "fontSize": 18,
+        }
+      }
+    >
+       
+      0
+       - 
+      0
+    </Text>
   </Text>
-  <View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       You played: 
-      fgyhjuk
+      Player 1
+       
+      played
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       IA plays: 
-      fghjklm
+      Player 2
+       
+      played
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       Winner: 
-      Draw
+      Winner
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        Draw
+      </Text>
     </Text>
   </View>
 </View>
@@ -65,36 +155,126 @@ exports[`renders correctly: with props number 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 18,
+      }
+    }
   >
-     Score is : 
-    0
-     - 
-    1
+    Score
+    :
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#E53935",
+          "fontSize": 18,
+        }
+      }
+    >
+       
+      0
+       - 
+      1
+    </Text>
   </Text>
-  <View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       You played: 
-      paper
+      Player 1
+       
+      played
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        PAPER
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       IA plays: 
-      rock
+      Player 2
+       
+      played
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        ROCK
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 18,
+        }
+      }
     >
-       Winner: 
-      You
+      Winner
+      :
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#E53935",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        Player 1
+      </Text>
     </Text>
   </View>
 </View>
@@ -115,11 +295,31 @@ exports[`renders correctly: without props 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 18,
+      }
+    }
   >
-     Score is : 
-    0
-     - 
-    0
+    Score
+    :
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#E53935",
+          "fontSize": 18,
+        }
+      }
+    >
+       
+      0
+       - 
+      0
+    </Text>
   </Text>
   <View />
 </View>
