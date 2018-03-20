@@ -33,5 +33,14 @@
   "leave": "Etes-vous sûr de vouloir revenir au menu ?",
   "back": "Revenir au menu",
 
+  "playerA": "Joueur 1",
+  "playerB": "Joueur 2",
+  "draw": "Egalite",
+  "winner": "Gagnant",
+  "turn": "Tour",
+  "bestOf":"Le premier joueur à avoir gagné 3 fois gagne",
+  "played": "a joué",
+  "score": "Score",
+
   "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
 }

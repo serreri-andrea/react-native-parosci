@@ -33,5 +33,14 @@
   "leave": "Do you want to go back to main menu ?",
   "back": "Return to menu",
 
+  "playerA": "Player 1",
+  "playerB": "Player 2",
+  "draw": "Draw",
+  "winner": "Winner",
+  "turn": "Turn",
+  "bestOf":"The first player who have won 3 times win",
+  "played": "played",
+  "score": "Score",
+
   "gameAvailable": "This game is currently only working on android."
 }
