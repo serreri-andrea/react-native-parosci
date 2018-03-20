@@ -39,7 +39,16 @@ If you want to run any test on the project you can just run ```npm test```, this
 - This project look after your mobile language and use it as a reference to render the same language inside the application, only English and French languages are covered.
 - Game rules are exeplained on the application itself.
 
-# Game mode
+# Game
+### Game mode
 - **Classic:** this game mode is following the standard of rock, paper, scissors game.
 - **Bazinga:** this game mode comes from the famous tv show **The Big Bang Theory** and basically add on the game 2 more playable card *Spock and Lizard*.
 
+### Type of game
+- **Player versus IA:** means you can play against the computer.
+- **IA versus IA:** you can watch the computers playing together, Com 1 play randomly and Com 2 play on the difficult choosen before.
+
+### Difficulty level
+- **Easy mode:** the computer play randomly (might not be that easy)
+- **Medium mode:** the computer play randomly the first time then he compare your previous move and actual move and will play a card who loose against your previous move (from web statistics this is one of the good combo to win most of the time).
+- **Hard mode:** you can not win against this computer because this one is cheating and will always plays the winning card against you.
