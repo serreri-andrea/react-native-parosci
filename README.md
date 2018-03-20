@@ -37,7 +37,7 @@ If you want to run any test on the project you can just run ```npm test```, this
 
 # Options
 - This project look after your mobile language and use it as a reference to render the same language inside the application, only English and French languages are covered.
-- Game rules are exeplained on the application itself.
+- Game rules can be customized.
 
 # Game
 ### Game mode
