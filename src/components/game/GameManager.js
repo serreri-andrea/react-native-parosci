@@ -10,6 +10,7 @@ import {
     Button,
     BackHandler,
     Alert,
+    Image
 } from 'react-native';
 import Localization             from "../../localization/LocalizedStrings";
 import ScoreBoard               from "./ScoreBoard";
@@ -121,7 +122,7 @@ export default class GameManager extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text> TOUR : {this.turn} </Text>
+                <Text style={styles.turn}>{Localization.getStringOfKey("turn")}: {this.turn} </Text>
                 <ScoreBoard playerOneCard={this.state.playerOneCard} playerTwoCard={this.state.playerTwoCard}
                             mode={this.props.mode} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
                 {this.renderGame()}
@@ -137,6 +138,11 @@ export default class GameManager extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"white"
+        backgroundColor:"#496a9a"
     },
+    turn:{
+        fontSize:20,
+        textAlign:'center',
+        color:Colors.primary
+    }
 });

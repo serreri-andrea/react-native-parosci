@@ -27,9 +27,9 @@ export default class CardBoard extends Component{
     renderCards(item){
         return(
             <View>
-                <TouchableHighlight onPress={this.handleChoosedCard.bind(this, item.item.reference)}>
-                    <Image source={item.item.images}
-                           style={{height:50, width:50, backgroundColor:this.state.card === item.item.reference ? "pink" : "white"}} />
+                <TouchableHighlight onPress={this.handleChoosedCard.bind(this, item.item.reference)} underlayColor={'transparent'}>
+                    <Image source={this.state.card === item.item.reference ? item.item.selected : item.item.images}
+                           style={{height:50, width:50, backgroundColor: "transparent"}} />
                 </TouchableHighlight>
             </View>
         )
@@ -42,7 +42,7 @@ export default class CardBoard extends Component{
                     data={this.props.cards}
                     extraData={this.state}
                     horizontal={true}
-                    ItemSeparatorComponent={() => <View style={{margin:20}}/>}
+                    ItemSeparatorComponent={() => <View style={{margin:10}}/>}
                     renderItem={this.renderCards.bind(this)}
                     keyExtractor={(item, index) => index.toString()}/>
             </View>

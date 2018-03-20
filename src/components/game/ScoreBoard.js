@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
         flex:1,
     },
     title:{
-        fontSize:15,
-        color: "black",
+        fontSize:18,
+        color: "white",
     },
     res:{
-        fontSize:15,
+        fontSize:18,
         color:Colors.secondary
     }
 });

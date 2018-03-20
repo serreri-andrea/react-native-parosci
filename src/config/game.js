@@ -7,6 +7,7 @@ const GameRules = [
             {
                 "reference": "rock",
                 "images": require('../images/rock.png'),
+                "selected": require('../images/rock_selected.png'),
                 "key": "rock",
                 "wins": ["scissors"],
                 "loose": ["paper"]
@@ -14,6 +15,7 @@ const GameRules = [
             {
                 "reference": "paper",
                 "images": require('../images/paper.png'),
+                "selected": require('../images/paper_selected.png'),
                 "key": "paper",
                 "wins": ["rock"],
                 "loose":["scissors"]
@@ -21,6 +23,7 @@ const GameRules = [
             {
                 "reference": "scissors",
                 "images": require('../images/scissors.png'),
+                "selected": require('../images/scissors_selected.png'),
                 "key": "scissors",
                 "wins": ["paper"],
                 "loose": ["rock"]
