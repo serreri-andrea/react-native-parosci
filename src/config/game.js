@@ -2,6 +2,7 @@ const GameRules = [
     {
         "reference": "classic",
         "modeAllow": ["pve", "eve"],
+        "images": require('../images/mode/mode_classic.png'),
         "cards":[
             {
                 "reference": "rock",
@@ -29,6 +30,7 @@ const GameRules = [
     {
         "reference": "extended",
         "modeAllow": ["pve", "eve"],
+        "images": require('../images/mode/mode_extended.png'),
         "cards":[
             {
                 "reference": "rock",

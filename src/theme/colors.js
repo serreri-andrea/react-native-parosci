@@ -8,6 +8,7 @@ export default {
     primary : "#00BFA5",
     secondary: "#E53935",
     failure: "#ff3234",
+    main: "#15133c",
     text :{
         textPrimary:"#222222",
         textSecondary:"#9a9a9a",
