@@ -21,7 +21,7 @@ This project use ** no library ** except for testing.
 You might have some trouble running the game for the first time, in fact I had too, the console might told you that ```ANDROID_HOME``` or ```local.properties``` is missing.<br/>
 You can generate the ```local.properties``` by just opening the Android folder on Android Studio or you can create a file named local.properties on the root of the android folder and add:
 ```sdk.dir=C:\\Users\\USERNAME\\AppData\\Local\\Android\\Sdk  ```<br/><br/>
-To setup your ```ANDROID_HOME``` you will need to open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**.Open the **Advanced** tab and click on **Environment Variables..**.. Click on **New...** to create a new ```ANDROID_HOME``` user variable that points to the path to your Android SDK.<br/>
+To setup your ```ANDROID_HOME``` you will need to open the System panel under **System and Security** in the Control Panel, then click on **Change settings...**.Open the **Advanced** tab and click on **Environment Variables..**.. Click on **New...** to create a new ```ANDROID_HOME``` user variable that points to the path to your Android SDK.<br/>
 **SDK Default path should be:**
 ```c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk```
 
@@ -36,7 +36,7 @@ If you want to run any test on the project you can just run ```npm test```, this
 - [Jest](https://facebook.github.io/jest/) - Wonderfull JS Library for testing.
 
 # Options
-- This project look after your mobile language and use it as a reference to render the same language inside the application, only English and French languages are covered.
+- This project look after your mobile language and use it as a reference to render the same language inside the application, only English and French languages are supported.
 - Game rules can be customized.
 
 # Game
@@ -46,7 +46,7 @@ If you want to run any test on the project you can just run ```npm test```, this
 
 ### Type of game
 - **Player versus IA:** means you can play against the computer.
-- **IA versus IA:** you can watch the computers playing together, Com 1 play randomly and Com 2 play on the difficult choosen before.
+- **IA versus IA:** you can watch the computers playing together, Com 1 play randomly and Com 2 play on the difficulty choosen before.
 
 ### Difficulty level
 - **Easy mode:** the computer play randomly (might not be that easy)
