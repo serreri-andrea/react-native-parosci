@@ -1,22 +1,23 @@
 import 'react-native';
 import React            from 'react';
-import IAManager        from '../game/IAManager';
+import GameManager      from '../game/GameManager';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
 it('renders correctly: without props', () => {
     const tree = renderer.create(
-        <IAManager/>
+        <GameManager/>
     );
     expect(tree).toMatchSnapshot();
 });
 
-it('renders correctly: with props', () => {
+it('renders correctly: without props', () => {
     const tree = renderer.create(
-        <IAManager cards={"frghjkl"} mode={"fghjklm"} callback={"dfghjukilm"} score={"fghjklm"}/>
+        <GameManager type={"hytgdefesefre"} mode={"fregfregregregre"} difficulty={"dedededede"} updateGame={42}/>
     );
     expect(tree).toMatchSnapshot();
 });
+
 
 

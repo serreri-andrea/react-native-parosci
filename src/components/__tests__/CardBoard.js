@@ -12,4 +12,10 @@ it('renders correctly: without props', () => {
     expect(tree).toMatchSnapshot();
 });
 
+it('renders correctly: with props', () => {
+    const tree = renderer.create(
+        <CardBoard cards={"ghjk"} callback={"fghjkl"}/>
+    );
+    expect(tree).toMatchSnapshot();
+});
 
