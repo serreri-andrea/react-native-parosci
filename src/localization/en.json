@@ -31,6 +31,7 @@
 
   "start": "Start game",
   "leave": "Do you want to go back to main menu ?",
+  "back": "Return to menu",
 
   "gameAvailable": "This game is currently only working on android."
 }

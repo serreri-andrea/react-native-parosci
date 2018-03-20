@@ -31,6 +31,7 @@
 
   "start": "Lancer la partie",
   "leave": "Etes-vous sûr de vouloir revenir au menu ?",
+  "back": "Revenir au menu",
 
   "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
 }

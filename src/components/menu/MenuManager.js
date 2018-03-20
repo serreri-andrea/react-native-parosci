@@ -38,14 +38,13 @@ export default class MenuManager extends Component{
 
     handleStartGame(){
         //send game status to navigation
-        this.props.callback({game:true});
+        this.props.callback(true, false);
         this.setState({game:true});
-        console.warn("START: ", this.state)
     }
 
     handleExitGame(){
         this.setState({game:false})
-        this.props.callback({game:false})
+        this.props.callback(false, true)
     }
 
     getGame(data){

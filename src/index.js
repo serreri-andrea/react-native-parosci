@@ -20,11 +20,12 @@ export default class App extends Component<Props> {
 
     constructor(props) {
         super(props);
-        this.props = props;
+        this.display = true;
         this.state = {};
     }
 
     componentWillReceiveProps(props){
+        console.warn("receive: ", props)
     }
 
     componentDidMount()  {
@@ -35,8 +36,9 @@ export default class App extends Component<Props> {
         this.setState({status:state})
     }
 
-    getGame(game){
+    getGame(game, display){
         // return the status of the game: on/off
+        this.display = display;
         this.setState({game:game})
     }
 
@@ -61,7 +63,7 @@ export default class App extends Component<Props> {
             return (
                 <View style={{flex: 1}}>
                     <StatusBar/>
-                    <HeaderManager callback={this.getNavigation.bind(this)} game={this.state.game}/>
+                    <HeaderManager callback={this.getNavigation.bind(this)} display={this.display}/>
                     {this.renderContent()}
                 </View>
             );

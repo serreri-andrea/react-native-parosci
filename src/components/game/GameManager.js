@@ -18,6 +18,7 @@ import IAManager                from "./IAManager";
 import GameRuler                from "../../config/game";
 import Rules                    from "../../lib/Rules";
 import Answers                  from "../../lib/Answers";
+import Colors                   from "../../theme/colors";
 
 export default class GameManager extends Component{
 
@@ -125,8 +126,8 @@ export default class GameManager extends Component{
                             mode={this.props.mode} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
                 {this.renderGame()}
                 <Button
-                    title="back"
-                    color="pink"
+                    title={Localization.getStringOfKey("back")}
+                    color={Colors.secondary}
                     onPress={this.handleBack.bind(this)}/>
             </View>
         )
