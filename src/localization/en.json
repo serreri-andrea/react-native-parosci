@@ -1,5 +1,8 @@
 {
   "title": "title",
+  "warning": "Warning",
+  "yes": "Yes",
+  "cancel": "Cancel",
 
   "rock": "rock",
   "paper": "paper",
@@ -27,6 +30,7 @@
   "titleDifficulties": "Difficulty level",
 
   "start": "Start game",
+  "leave": "Do you want to go back to main menu ?",
 
   "gameAvailable": "This game is currently only working on android."
 }

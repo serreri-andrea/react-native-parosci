@@ -11,6 +11,7 @@ import {
     BackHandler,
     Alert,
 } from 'react-native';
+import Localization             from "../../localization/LocalizedStrings";
 import ScoreBoard               from "./ScoreBoard";
 import CardBoard                from "./CardBoard";
 import IAManager                from "./IAManager";
@@ -42,11 +43,11 @@ export default class GameManager extends Component{
 
     handleBack(){
         Alert.alert(
-            "Warning",
-            "Do you want to exit the game ?",
+            Localization.getStringOfKey("warning"),
+            Localization.getStringOfKey("leave"),
             [
-                {text: "yes", onPress: () => this.props.updateGame()},
-                {text: "no", onPress:null}
+                {text: Localization.getStringOfKey("yes"), onPress: () => this.props.updateGame()},
+                {text: Localization.getStringOfKey("cancel"), onPress:null}
             ],
             {cancelable: false}
         )

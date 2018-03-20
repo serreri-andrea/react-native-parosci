@@ -1,5 +1,8 @@
 {
   "title": "titre",
+  "warning": "Attention",
+  "yes": "Oui",
+  "cancel": "Annuler",
 
   "rock": "pierre",
   "paper": "papier",
@@ -27,6 +30,7 @@
   "titleDifficulties": "Niveau de difficulte",
 
   "start": "Lancer la partie",
+  "leave": "Etes-vous sûr de vouloir revenir au menu ?",
 
   "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
 }
