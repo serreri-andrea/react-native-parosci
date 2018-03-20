@@ -6,7 +6,7 @@ import GameRuler        from "../config/game";
 
 const Rules = {
     getCards(mode){
-        if (!mode)
+        if (!mode || mode !== "classic" || mode !== "extended")
             mode = "classic";
         let cards = {};
         for (let i = 0; i < GameRuler.length; i++){

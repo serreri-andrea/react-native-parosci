@@ -7,7 +7,7 @@ import Rules            from "./Rules";
 const Answers = {
 
     answersIAEasy(mode){
-        if (!mode)
+        if (!mode || mode !== "classic" || mode !== "extended")
             mode = "classic";
         let array = Rules.getCards(mode);
         let random = array[Math.floor(Math.random() * array.length)];
@@ -15,7 +15,7 @@ const Answers = {
     },
 
     answersIACheat(mode, opponentCard){
-        if (!mode)
+        if (!mode || mode !== "classic" || mode !== "extended")
             mode = "classic";
         let cards = Rules.getCards(mode);
         for(let i = 0; i < cards.length; i++){
@@ -33,7 +33,7 @@ const Answers = {
 
     answersIAMedium(mode, previousOpponentCard, actualCard){
         let time = 0;
-        if (!mode)
+        if (!mode || mode !== "classic" || mode !== "extended")
             mode = "classic";
         if (!previousOpponentCard)
             return(this.answersIAEasy(mode));
