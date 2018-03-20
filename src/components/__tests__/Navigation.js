@@ -1,11 +1,11 @@
 import 'react-native';
 import React            from 'react';
-import App              from '../src/index';
-import StatusBarManager from "../src/components/header/StatusBarManager";
-import HeaderManager    from "../src/components/header/HeaderManager";
-import Rules            from "../src/components/rules/Rules";
-import About            from "../src/components/about/About";
-import GameManager      from "../src/components/game/GameManager";
+import App              from '../../index';
+import StatusBarManager from "../header/StatusBarManager";
+import HeaderManager    from "../header/HeaderManager";
+import Rules            from "../rules/Rules";
+import About            from "../about/About";
+import GameManager      from "../game/GameManager";
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
