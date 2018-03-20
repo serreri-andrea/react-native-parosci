@@ -6,6 +6,10 @@ This game was made for a job test, this is a copy of the well known game "rock, 
 Behaware that this game was only tested in android due to a lack of apple material, however you can still enjoy it on android !<br/>
 This project use ** no library ** except for testing.
 
+# Prerequisites
+- Having Android studio set up.
+- Having an another IDE like WebStorm to run the game and test.
+
 # Run the project
 - Clone the project
 - Run ```npm install```
@@ -21,8 +25,21 @@ To setup your ```ANDROID_HOME``` you will need to open the System pane under **S
 **SDK Default path should be:**
 ```c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk```
 
-# Unit tests
+# Run the test
 If you want to run any test on the project you can just run ```npm test```, this will run all the tests from:<br/>
 * [Component](https://github.com/serreri-andrea/react-native-parosci/tree/master/src/components/__tests__)<br/>
 * [Lib](https://github.com/serreri-andrea/react-native-parosci/tree/master/src/lib/__tests__)<br/>
 * [Localization](https://github.com/serreri-andrea/react-native-parosci/tree/master/src/localization/__tests__)<br/>
+
+# Built with
+- [React-native](https://facebook.github.io/react-native/) - Cross-platform framework for mobile.
+- [Jest](https://facebook.github.io/jest/) - Wonderfull JS Library for testing.
+
+# Options
+- This project look after your mobile language and use it as a reference to render the same language inside the application, only English and French languages are covered.
+- Game rules are exeplained on the application itself.
+
+# Game mode
+- **Classic:** this game mode is following the standard of rock, paper, scissors game.
+- **Bazinga:** this game mode comes from the famous tv show **The Big Bang Theory** and basically add on the game 2 more playable card *Spock and Lizard*.
+
