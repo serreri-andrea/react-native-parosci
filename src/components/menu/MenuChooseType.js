@@ -9,7 +9,8 @@ import {
     View,
     Button,
     Image,
-    FlatList
+    FlatList,
+    TouchableWithoutFeedback
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
@@ -34,19 +35,37 @@ export default class MenuChooseType extends Component{
         this.setState({type:type})
         this.state.updatePreset({type:type})
     }
+/*<TouchableWithoutFeedback onPress={this.handleType.bind(this, "pve")}
+ style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+ <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+ <Image source={require("../../images/mode/mode_pve.png")} style={{backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main}}/>
+ </View>
+ </TouchableWithoutFeedback>
+ <TouchableWithoutFeedback onPress={this.handleType.bind(this, "eve")}
+ style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+ <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+ <Image source={require("../../images/mode/mode_eve.png")} style={{backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main}}/>
+ </View>
+ </TouchableWithoutFeedback>*/
+
 
     render(){
         if (this.state.mode) {
             return(
                 <View>
-                    <Button
-                        title={Localization.getStringOfKey("pve")}
-                        onPress={this.handleType.bind(this, "pve")}
-                        color={this.state.type === "pve" ? Colors.secondary : Colors.primary}/>
-                    <Button
-                        title={Localization.getStringOfKey("eve")}
-                        onPress={this.handleType.bind(this, "eve")}
-                        color={this.state.type === "eve" ? Colors.secondary : Colors.primary}/>
+                    <Text style={{fontSize:15, color:"white", backgroundColor:"#455A64", textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:1 , borderTopWidth:1}}>TYPE DE PARTIE</Text>
+                    <TouchableWithoutFeedback onPress={this.handleType.bind(this, "pve")}
+                                              style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                        <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                            <Image source={require("../../images/mode/mode_pve.png")} style={{backgroundColor:this.state.type === "pve" ? Colors.secondary :Colors.main}}/>
+                        </View>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={this.handleType.bind(this, "eve")}
+                                              style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                        <View style={{width:Sizes.screen.width, height:Sizes.screen.height / 6, backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main, alignItems:'center'}}>
+                            <Image source={require("../../images/mode/mode_eve.png")} style={{backgroundColor:this.state.type === "eve" ? Colors.secondary :Colors.main}}/>
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
             )
         }else{return(<View/>)}

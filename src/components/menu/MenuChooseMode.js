@@ -59,7 +59,7 @@ export default class MenuChooseMode extends Component{
     render(){
         return(
             <View>
-                <Text style={{fontSize:15, color:"white", backgroundColor:Colors.main, textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:5}}>Game mode</Text>
+                <Text style={{fontSize:15, color:"white", backgroundColor:"#455A64", textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:1, borderTopWidth:1}}>MODE DE JEU</Text>
                 <FlatList
                     data={GameMode}
                     extraData={this.state}

@@ -8,7 +8,8 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 import GameManager              from "../game/GameManager";
 import Sizes                    from "../../theme/sizes";
@@ -79,12 +80,12 @@ export default class MenuManager extends Component{
             )
         }else{
             return(
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                     <MenuChooseMode mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
                     <MenuChooseType mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty } updatePreset={this.getGame.bind(this)}/>
                     <MenuChooseDifficulty mode={this.state.mode} type={this.state.type} difficulty={this.state.difficulty} updatePreset={this.getGame.bind(this)}/>
                     {this.renderStart()}
-                </View>
+                </ScrollView>
             )
         }
     }
