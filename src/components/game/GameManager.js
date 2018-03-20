@@ -36,8 +36,8 @@ export default class GameManager extends Component{
 
     componentDidMount()  {
         /* BackHandler.addEventListener('hardwareBackPress', function() {
-             this.props.callback(false)
-             return true;
+         this.props.callback(false)
+         return true;
          });*/
     }
 
@@ -90,13 +90,18 @@ export default class GameManager extends Component{
         this.setState({playerOneCard:card, card:null})
     }
 
+    renderEnd(){
+        return(
+            <Text style={styles.end}>{Localization.getStringOfKey("final")}</Text>
+        )
+    }
+
     renderGame(){
         if (this.props.type === "pve") {
             if (this.state.p1Score >= 3 || this.state.p2Score >= 3) {
                 return (
-                    <View>
-                        <Text> game if finished with, p1 score : {this.state.p1Score} and p2
-                            score: {this.state.p2Score}</Text>
+                    <View style={{flex:1}}>
+                        {this.renderEnd()}
                     </View>
                 )
             } else {
@@ -107,8 +112,8 @@ export default class GameManager extends Component{
         }else{
             if (this.state.p1Score > 3 || this.state.p2Score > 3) {
                 return(
-                    <View>
-                        <Text> game if finished with, IA 1 : {this.state.p1Score} and IA 2 score: {this.state.p2Score}</Text>
+                    <View style={{flex:1}}>
+                        {this.renderEnd()}
                     </View>
                 )
             }else{
@@ -124,14 +129,14 @@ export default class GameManager extends Component{
         return(
             <View style={styles.container}>
                 <ImageBackground source={require('../../images/background@x3.png')} style={{flex:1}}>
-                <Text style={styles.turn}>{Localization.getStringOfKey("turn")}: {this.turn} </Text>
-                <ScoreBoard playerOneCard={this.state.playerOneCard} playerTwoCard={this.state.playerTwoCard}
-                            mode={this.props.mode} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
-                {this.renderGame()}
-                <Button
-                    title={Localization.getStringOfKey("back")}
-                    color={Colors.secondary}
-                    onPress={this.handleBack.bind(this)}/>
+                    <Text style={styles.turn}>{Localization.getStringOfKey("turn")}: {this.turn} </Text>
+                    <ScoreBoard playerOneCard={this.state.playerOneCard} playerTwoCard={this.state.playerTwoCard}
+                                mode={this.props.mode} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
+                    {this.renderGame()}
+                    <Button
+                        title={Localization.getStringOfKey("back")}
+                        color={Colors.secondary}
+                        onPress={this.handleBack.bind(this)}/>
                 </ImageBackground>
             </View>
         )
@@ -147,5 +152,10 @@ const styles = StyleSheet.create({
         fontSize:20,
         textAlign:'center',
         color:Colors.primary
+    },
+    end:{
+        fontSize:25,
+        textAlign:'center',
+        color:Colors.secondary
     }
 });

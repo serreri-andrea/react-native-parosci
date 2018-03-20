@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Answers              from "../../lib/Answers";
+import Sizes                from "../../theme/sizes";
 
 export default class IAManager extends Component{
 
@@ -26,7 +27,7 @@ export default class IAManager extends Component{
             let answer = Answers.answersIAEasy(this.props.mode);
             this.setState({card: answer});
             this.handleChoosedCard(answer);
-        }, 3000)
+        }, 2000)
     }
 
     componentWillReceiveProps(props){
@@ -47,12 +48,8 @@ export default class IAManager extends Component{
         if (item && item.item) {
             return (
                 <View>
-                    <Image source={item.item.images}
-                           style={{
-                               height: 50,
-                               width: 50,
-                               backgroundColor: this.state.card === item.item.reference ? "pink" : "white"
-                           }}/>
+                    <Image source={this.state.card === item.item.reference ? item.item.images.selected : item.item.images.default}
+                           style={{height:Sizes.screen.height / 8, width:Sizes.screen.width / 5, margin:10}} />
                 </View>
             )
         }else{return(<View/>)}
@@ -64,8 +61,9 @@ export default class IAManager extends Component{
                 <FlatList
                     data={this.props.cards}
                     extraData={this.state}
-                    horizontal={true}
-                    ItemSeparatorComponent={() => <View style={{margin: 20}}/>}
+                    numColumns={3}
+                    columnWrapperStyle={styles.container}
+                    ItemSeparatorComponent={() => <View style={{margin:0}}/>}
                     renderItem={this.renderCards.bind(this)}
                     keyExtractor={(item, index) => index.toString()}/>
             </View>
@@ -77,7 +75,7 @@ const styles = StyleSheet.create({
     container:{
         marginTop:10,
         marginBottom:10,
-        flexDirection:"row",
-        justifyContent:'center'
+        justifyContent:'center',
+        alignItems:"center",
     },
 });

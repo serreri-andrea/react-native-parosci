@@ -42,5 +42,7 @@
   "played": "played",
   "score": "Score",
 
+  "final" : "Game end",
+
   "gameAvailable": "This game is currently only working on android."
 }
