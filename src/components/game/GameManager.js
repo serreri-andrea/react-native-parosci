@@ -138,7 +138,7 @@ export default class GameManager extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#496a9a"
+        backgroundColor:"#ececec"
     },
     turn:{
         fontSize:20,
