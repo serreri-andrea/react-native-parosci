@@ -42,7 +42,7 @@ export default class MenuChooseDifficulty extends Component{
                     <Button
                         title={Localization.getStringOfKey(item.item.reference)}
                         onPress={this.handleDifficulty.bind(this, item.item.reference)}
-                        color={this.state.difficulty === item.item.reference ? Colors.secondary : Colors.primary}
+                        color={this.state.difficulty === item.item.reference ? Colors.secondary : Colors.main}
                     />
                 </View>
             )
@@ -52,12 +52,16 @@ export default class MenuChooseDifficulty extends Component{
     render(){
         if (this.state.mode && this.state.type) {
             return (
-                <FlatList
-                    data={GameDifficulty}
-                    extraData={this.state}
-                    horizontal={false}
-                    renderItem={this.renderDifficulty.bind(this)}
-                    keyExtractor={(item, index) => index.toString()}/>
+                <View>
+                    <Text style={{fontSize:15, color:"white", backgroundColor:"#455A64", textAlign:'center', paddingTop:10, paddingBottom:10, borderBottomWidth:1 , borderTopWidth:1}}>MODE DE DIFFICULTE</Text>
+                    <FlatList
+                        style={{width:Sizes.screen.width}}
+                        data={GameDifficulty}
+                        extraData={this.state}
+                        horizontal={false}
+                        renderItem={this.renderDifficulty.bind(this)}
+                        keyExtractor={(item, index) => index.toString()}/>
+                </View>
             )
         }else{
             return(<View/>)

@@ -9,6 +9,7 @@ export default {
     secondary: "#E53935",
     failure: "#ff3234",
     main: "#15133c",
+    title: "#455A64",
     text :{
         textPrimary:"#222222",
         textSecondary:"#9a9a9a",

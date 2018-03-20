@@ -17,6 +17,7 @@ import Colors                   from "../../theme/colors";
 import MenuChooseType           from "./MenuChooseType";
 import MenuChooseMode           from "./MenuChooseMode";
 import MenuChooseDifficulty     from "./MenuChooseDifficulty";
+import Localization             from "../../localization/LocalizedStrings";
 
 export default class MenuManager extends Component{
 
@@ -64,8 +65,8 @@ export default class MenuManager extends Component{
             return(
                 <View>
                     <Button
-                        color={"#15133c"}
-                        title="start game"
+                        color={Colors.primary}
+                        title={Localization.getStringOfKey("start")}
                         onPress={this.handleStartGame.bind(this)}
                     />
                 </View>
@@ -102,7 +103,7 @@ export default class MenuManager extends Component{
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:"#BABDC2",
+        backgroundColor:"black",
         flex:1
     },
 });

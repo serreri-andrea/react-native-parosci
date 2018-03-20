@@ -22,5 +22,11 @@
   "pve": "Joueur vs Bot",
   "eve": "Bot vs Bot",
 
+  "titleMode": "Mode de jeu",
+  "titleType": "Type de partie",
+  "titleDifficulties": "Niveau de difficulte",
+
+  "start": "Lancer la partie",
+
   "gameAvailable": "Ce jeu ne fonctionne actuellement que sur Android."
 }

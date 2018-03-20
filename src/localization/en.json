@@ -22,5 +22,11 @@
   "pve": "Player vs IA",
   "eve": "IA vs IA",
 
+  "titleMode": "Game mode",
+  "titleType": "Type of game",
+  "titleDifficulties": "Difficulty level",
+
+  "start": "Start game",
+
   "gameAvailable": "This game is currently only working on android."
 }
