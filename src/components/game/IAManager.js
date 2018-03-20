@@ -6,8 +6,13 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    FlatList,
+    Image,
+    TouchableHighlight
 } from 'react-native';
+
+import Answers              from "../../lib/Answers";
 
 export default class IAManager extends Component{
 
@@ -17,10 +22,43 @@ export default class IAManager extends Component{
         this.state = {};
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            let answer = Answers.answersIAEasy(this.props.mode);
+            this.setState({card: answer}, () => {
+                setTimeout(() => {
+                    this.handleChoosedCard(this.state.card)
+                }, 1000)
+            })
+        }, 1000)
+    }
+
+
+    handleChoosedCard(card){
+        //this.setState({card:card});
+        this.props.callback(card);
+        //clearTimeout();
+    }
+
+    renderCards(item){
+        return(
+            <View>
+                <Image source={item.item.images}
+                       style={{height:50, width:50, backgroundColor:this.state.card === item.item.reference ? "pink" : "white"}} />
+            </View>
+        )
+    }
+
     render(){
         return(
             <View style={styles.container}>
-                <Text> Score is : 0 - 0 </Text>
+                <FlatList
+                    data={this.props.cards}
+                    extraData={this.state}
+                    horizontal={true}
+                    ItemSeparatorComponent={() => <View style={{margin:20}}/>}
+                    renderItem={this.renderCards.bind(this)}
+                    keyExtractor={(item, index) => index.toString()}/>
             </View>
         )
     }
@@ -28,8 +66,9 @@ export default class IAManager extends Component{
 
 const styles = StyleSheet.create({
     container:{
-        alignItems:'center',
         marginTop:10,
-        marginBottom:10
+        marginBottom:10,
+        flexDirection:"row",
+        justifyContent:'center'
     },
 });

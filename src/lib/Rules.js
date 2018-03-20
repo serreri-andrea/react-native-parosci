@@ -37,6 +37,7 @@ const Rules = {
             }
             return (winner)
         }
-    }
+    },
+
 };
 module.exports = Rules;

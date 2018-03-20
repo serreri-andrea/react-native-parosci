@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import ScoreBoard               from "./ScoreBoard";
 import CardBoard                from "./CardBoard";
+import IAManager                from "./IAManager";
 import GameRuler                from "../../config/game";
 import Rules                    from "../../lib/Rules";
 import Answers                  from "../../lib/Answers";
@@ -21,8 +22,11 @@ export default class GameManager extends Component{
 
     constructor(props) {
         super(props);
-        this.props = props;
-        this.state = {};
+        this.turn = 0;
+        this.state = {
+            p1Score:0,
+            p2Score:0,
+        }
     }
 
     componentDidMount()  {
@@ -47,57 +51,79 @@ export default class GameManager extends Component{
         )
     }
 
+    updateScore(cardA, cardB){
+        let winner = Rules.getVictory(this.props.mode, cardA,cardB);
+        let p1Score= this.state.p1Score;
+        let p2Score = this.state.p2Score;
+        if (winner === 1){
+            this.setState({p1Score: p1Score + 1})
+        }else if (winner === 2){
+            this.setState({p2Score: p2Score + 1})
+        }else{
+            this.setState({p1Score: p1Score, p2Score: p2Score})
+        }
+    }
+
     getResponse(card){
+        this.turn = this.turn + 1;
         let difficulty = this.props.difficulty;
         let mode = this.props.mode;
         if (difficulty === "medium"){
-            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
+            let IACard = Answers.answersIAEasy(mode);
+            this.updateScore(card, IACard);
+            this.setState({playerTwoCard:IACard})
         }else if (difficulty === "hard"){
-            this.setState({playerTwoCard:Answers.answersIACheat(mode, card)})
+            let IACard = Answers.answersIACheat(mode, card);
+            this.updateScore(card, IACard);
+            this.setState({playerTwoCard:IACard})
         }else{
-            this.setState({playerTwoCard:Answers.answersIAEasy(mode)})
+            let IACard = Answers.answersIAEasy(mode);
+            this.updateScore(card, IACard);
+            this.setState({playerTwoCard:IACard})
         }
-        this.setState({playerOneCard:card})
+        this.setState({playerOneCard:card, card:null})
     }
 
-    getWinner(){
-        let winner = Rules.getVictory(this.props.mode, this.state.playerOneCard,this.state.playerTwoCard );
-        if (winner === 1){
-            return ("You")
-        }else if (winner === 2){
-            return ("Opponent")
+    getPlays(){
+        if (this.props.type === "pve"){
+            return(
+                <CardBoard cards={Rules.getCards(this.props.mode)} callback={this.getResponse.bind(this)}/>
+
+            )
         }else{
-            return("Draw")
+            return(
+                <IAManager cards={Rules.getCards(this.props.mode)} mode={this.props.mode} callback={this.getResponse.bind(this)}/>
+            )
         }
     }
 
-
-    renderMatchInfo(){
-        if (this.state.playerOneCard && this.state.playerTwoCard) {
-            return (
+    renderGame(){
+        if (this.state.p1Score >= 3  || this.state.p2Score >= 3){
+            return(
                 <View>
-                    <Text> You played: {this.state.playerOneCard || ""}</Text>
-                    <Text> IA plays: {this.state.playerTwoCard || ""}</Text>
-                    <Text> Winner: {this.getWinner()}</Text>
+                    <Text> game if finished with, p1 score : {this.state.p1Score} and p2 score: {this.state.p2Score}</Text>
                 </View>
             )
         }else{
-            return(<View/>)
+            return(
+                <View>
+                    {this.getPlays()}
+                </View>
+            )
         }
     }
 
     render(){
         return(
             <View style={styles.container}>
-                <ScoreBoard/>
-                <View style={{flex:1}}>
-                    {this.renderMatchInfo()}
-                </View>
-                <CardBoard cards={Rules.getCards(this.props.mode)} callback={this.getResponse.bind(this)}/>
+                <Text> TOUR : {this.turn} </Text>
+                <ScoreBoard playerOneCard={this.state.playerOneCard} playerTwoCard={this.state.playerTwoCard}
+                            mode={this.props.mode} score={{p1Score:this.state.p1Score, p2Score:this.state.p2Score}}/>
+                {this.renderGame()}
                 <Button
-                title="back"
-                color="pink"
-                onPress={this.handleBack.bind(this)}/>
+                    title="back"
+                    color="pink"
+                    onPress={this.handleBack.bind(this)}/>
             </View>
         )
     }
