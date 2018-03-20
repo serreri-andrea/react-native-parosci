@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "dependencies": {
     "react": "16.2.0",

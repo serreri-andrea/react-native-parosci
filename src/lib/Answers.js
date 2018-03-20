@@ -19,10 +19,14 @@ const Answers = {
             mode = "classic";
         let cards = Rules.getCards(mode);
         for(let i = 0; i < cards.length; i++){
-            if (cards[i].reference === opponentCard){
-                let array = cards[i].loose;
-                let random = array[Math.floor(Math.random()*array.length)];
-                return(random)
+            if (!opponentCard){
+                return(this.answersIAEasy(mode))
+            }else {
+                if (cards[i].reference === opponentCard) {
+                    let array = cards[i].loose;
+                    let random = array[Math.floor(Math.random() * array.length)];
+                    return (random)
+                }
             }
         }
     },

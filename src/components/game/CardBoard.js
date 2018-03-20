@@ -16,7 +16,6 @@ export default class CardBoard extends Component{
 
     constructor(props) {
         super(props);
-        this.props = props;
         this.state = {};
     }
 
