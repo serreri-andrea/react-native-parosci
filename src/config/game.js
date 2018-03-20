@@ -71,15 +71,19 @@ const GameRules = [
             },
             {
                 "reference": "spock",
-                "images": require('../images/spock.png'),
-                "key": "spock",
+                "images": {
+                    "default": require('../images/spock.png'),
+                    "selected": require('../images/spock_selected.png'),
+                },                  "key": "spock",
                 "wins": ["rock", "scissors"],
                 "loose": ["lizard", "paper"]
             },
             {
                 "reference": "lizard",
-                "images": require('../images/lizard.png'),
-                "key": "lizard",
+                "images": {
+                    "default": require('../images/lizard.png'),
+                    "selected": require('../images/lizard_selected.png'),
+                },                  "key": "lizard",
                 "wins": ["paper", "spock"],
                 "loose": ["rock", "scissors"]
             }
