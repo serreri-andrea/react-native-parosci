@@ -1,0 +1,615 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly: without props 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ececec",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#00BFA5",
+          "fontSize": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Turn
+      : 
+      0
+       
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 18,
+          }
+        }
+      >
+        Score
+        :
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#E53935",
+              "fontSize": 18,
+            }
+          }
+        >
+           
+          0
+           - 
+          0
+        </Text>
+      </Text>
+      <View />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        columnWrapperStyle={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 10,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "rock",
+              "loose": Array [
+                "paper",
+              ],
+              "reference": "rock",
+              "wins": Array [
+                "scissors",
+              ],
+            },
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "paper",
+              "loose": Array [
+                "scissors",
+              ],
+              "reference": "paper",
+              "wins": Array [
+                "rock",
+              ],
+            },
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "scissors",
+              "loose": Array [
+                "rock",
+              ],
+              "reference": "scissors",
+              "wins": Array [
+                "paper",
+              ],
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={Object {}}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={3}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "marginBottom": 10,
+                    "marginTop": 10,
+                  },
+                ]
+              }
+            >
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={undefined}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#E53935",
+              },
+            ]
+          }
+        >
+          Return to menu
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly: without props 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ececec",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#00BFA5",
+          "fontSize": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Turn
+      : 
+      0
+       
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 18,
+          }
+        }
+      >
+        Score
+        :
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#E53935",
+              "fontSize": 18,
+            }
+          }
+        >
+           
+          0
+           - 
+          0
+        </Text>
+      </Text>
+      <View />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        columnWrapperStyle={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 10,
+          }
+        }
+        data={
+          Array [
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "rock",
+              "loose": Array [
+                "paper",
+              ],
+              "reference": "rock",
+              "wins": Array [
+                "scissors",
+              ],
+            },
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "paper",
+              "loose": Array [
+                "scissors",
+              ],
+              "reference": "paper",
+              "wins": Array [
+                "rock",
+              ],
+            },
+            Object {
+              "images": Object {
+                "default": 1,
+                "selected": 1,
+              },
+              "key": "scissors",
+              "loose": Array [
+                "rock",
+              ],
+              "reference": "scissors",
+              "wins": Array [
+                "paper",
+              ],
+            },
+          ]
+        }
+        disableVirtualization={false}
+        extraData={Object {}}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={3}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "marginBottom": 10,
+                    "marginTop": 10,
+                  },
+                ]
+              }
+            >
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 166.75,
+                      "margin": 10,
+                      "width": 150,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={undefined}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#E53935",
+              },
+            ]
+          }
+        >
+          Return to menu
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
