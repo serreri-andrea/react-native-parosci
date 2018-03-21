@@ -55,7 +55,10 @@ If you want to run any test on the project you can just run ```npm test```, this
 
 # Diagrams
 
+### Game usage
 ![GAME USE](https://github.com/serreri-andrea/react-native-parosci/blob/master/src/images/diagrams/Game%20process.png)
+
+### Win Condition
 ![WIN CONDITION](https://github.com/serreri-andrea/react-native-parosci/blob/master/src/images/diagrams/win%20process.png)
 
 # Author
