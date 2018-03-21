@@ -52,3 +52,12 @@ If you want to run any test on the project you can just run ```npm test```, this
 - **Easy mode:** the computer play randomly (might not be that easy)
 - **Medium mode:** the computer play randomly the first time then he compare your previous move and actual move and will play a card who loose against your previous move (from web statistics this is one of the good combo to win most of the time).
 - **Hard mode:** you can not win against this computer because this one is cheating and will always plays the winning card against you.
+
+# Diagrams
+
+![GAME USE](https://github.com/serreri-andrea/react-native-parosci/blob/master/src/images/diagrams/Game%20process.png)
+![WIN CONDITION](https://github.com/serreri-andrea/react-native-parosci/blob/master/src/images/diagrams/win%20process.png)
+
+# Author
+
+Andrea Mazin - *serreri-andrea*
